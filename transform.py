@@ -1,8 +1,7 @@
 import pandas as pd
-from extract import extract_data  # Importer la fonction d'extraction depuis le fichier extract.py
+from extract import extract_data 
 
 def transform_data(data):
-    # Liste des langues originales et leurs codes correspondants
     langues_codes = {
         'English': 'EN',
         'French': 'FR',
@@ -22,13 +21,12 @@ def transform_data(data):
         'Gujarati': 'GU'
     }
 
-    # Ajouter une colonne au DataFrame pour le code de langue normalisé
     data['Language code'] = data['Original language'].map(langues_codes)
 
     return data
 
 if _name_ == "_main_":
-    extracted_data = extract_data()  # Appeler la fonction d'extraction
-    transformed_data = transform_data(extracted_data)  # Appliquer la transformation
+    extracted_data = extract_data()  
+    transformed_data = transform_data(extracted_data) 
     print("Données transformées:")
     print(transformed_data.head())
